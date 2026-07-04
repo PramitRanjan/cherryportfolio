@@ -138,7 +138,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             aria-hidden="true"
             className="absolute inset-0 flex items-center justify-end font-mono text-[color:var(--color-muted)] transition-colors duration-300 group-hover:text-[color:var(--row-accent)]"
           >
-            {project.year ? `${project.year} →` : '→'}
+            →
           </span>
         </div>
       </div>

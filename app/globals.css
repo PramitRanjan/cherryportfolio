@@ -289,26 +289,17 @@ h3 {
   padding-left: 1.25rem;
 }
 
-/* marquee — the slow editorial ribbon */
-@keyframes u-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-.u-marquee {
-  display: flex;
-  width: max-content;
-  min-width: 200%;
-  animation: u-marquee 20s linear infinite;
-  will-change: transform;
-}
-
 .home-marquee {
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  transform: translate3d(0, 0, 0);
+}
+
+.marquee-segment {
+  min-width: max-content;
 }
 
 @media (max-width: 699px) {
@@ -317,7 +308,7 @@ h3 {
     --text-h2: 1.82rem;
     --text-body: 0.98rem;
     --text-eyebrow: 0.7rem;
-    --home-mobile-min-height: clamp(600px, calc(100svh + 1.75rem), 660px);
+    --home-mobile-min-height: clamp(520px, calc(100dvh + 0.75rem), 620px);
   }
 
   .u-eyebrow {
@@ -376,7 +367,7 @@ h3 {
 
   .home-hero-bottom {
     right: 2rem;
-    bottom: 0.85rem;
+    bottom: calc(1.85rem + env(safe-area-inset-bottom));
     left: 1.5rem;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas:
@@ -409,10 +400,6 @@ h3 {
     padding-bottom: 0.85rem;
   }
 
-  .u-marquee {
-    animation-duration: 12s;
-    animation-play-state: running;
-  }
 }
 
 @media (max-width: 430px) {
@@ -428,7 +415,7 @@ h3 {
   }
 
   .home-hero {
-    padding: 1.4rem 0.95rem calc(4.5rem + env(safe-area-inset-bottom));
+    padding: 1.25rem 0.95rem calc(5.35rem + env(safe-area-inset-bottom));
   }
 
   .home-hero-koi-mobile {
@@ -456,7 +443,7 @@ h3 {
 
   .home-hero-bottom {
     right: max(1rem, env(safe-area-inset-right));
-    bottom: calc(0.8rem + env(safe-area-inset-bottom));
+    bottom: calc(2.25rem + env(safe-area-inset-bottom));
     left: max(1rem, env(safe-area-inset-left));
     column-gap: 0.65rem;
   }
@@ -477,7 +464,7 @@ h3 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .u-marquee {
-    transform: translateX(0);
+  .marquee-track {
+    transform: translate3d(0, 0, 0) !important;
   }
 }

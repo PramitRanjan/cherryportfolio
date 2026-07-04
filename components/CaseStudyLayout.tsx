@@ -1,61 +1,13 @@
 import Link from 'next/link';
-import type { CaseStudyContent, MediaBlock } from '@/lib/site-content-schema';
-import { isSafeEmbedUrl, renderRichText } from '@/lib/security';
+import type { CaseStudyContent } from '@/lib/site-content-schema';
+import { renderRichText } from '@/lib/security';
 import { accentVar, gradientStops } from '@/lib/motifs';
 import { GsapReveal } from '@/components/GsapReveal';
 import { AnimatedEyebrow } from '@/components/AnimatedEyebrow';
 import { CaseStudyRail } from '@/components/CaseStudyRail';
+import { CaseStudyMedia } from '@/components/CaseStudyMedia';
 import GradientField from '@/components/motifs/GradientField';
-import RippleField from '@/components/motifs/RippleField';
-import HalftoneField from '@/components/motifs/HalftoneField';
 import Starburst from '@/components/motifs/Starburst';
-
-function Media({ block }: { block: MediaBlock }) {
-  if (block.kind === 'embed') {
-    if (!block.embedUrl || !isSafeEmbedUrl(block.embedUrl)) return null;
-    return (
-      <figure className="my-10">
-        <iframe
-          src={block.embedUrl}
-          className="aspect-video w-full"
-          style={{ border: '1px solid var(--color-line)' }}
-          allowFullScreen
-          loading="lazy"
-        />
-        {block.caption && <figcaption className="u-eyebrow mt-3">{block.caption}</figcaption>}
-      </figure>
-    );
-  }
-
-  const images = block.images ?? [];
-  if (images.length === 0) return null;
-
-  const layout = block.layout ?? 'full';
-  const gridClass =
-    block.kind === 'gallery' || layout === 'split'
-      ? 'grid gap-4 sm:grid-cols-2'
-      : 'grid gap-4';
-  const widthClass = layout === 'inset' ? 'mx-auto max-w-2xl' : '';
-
-  return (
-    <figure className={`my-10 ${widthClass}`}>
-      <div className={gridClass}>
-        {images.map((src) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={src}
-            src={src}
-            alt={block.caption ?? ''}
-            className="w-full object-cover"
-            style={{ border: '1px solid var(--color-line)' }}
-            loading="lazy"
-          />
-        ))}
-      </div>
-      {block.caption && <figcaption className="u-eyebrow mt-3">{block.caption}</figcaption>}
-    </figure>
-  );
-}
 
 function PagerCard({
   link,
@@ -127,17 +79,6 @@ export function CaseStudyLayout({ study }: { study: CaseStudyContent }) {
           </nav>
         </div>
         <GradientField stops={gradientStops(study.accent)} grain className="relative overflow-hidden">
-          {/* halftone florals drifting over the gradient — the Aurora-deck feel */}
-          <HalftoneField
-            variant="flower"
-            tint="var(--color-surface)"
-            className="absolute -right-16 -top-16 z-0 w-72 opacity-[0.14]"
-          />
-          <HalftoneField
-            variant="fade"
-            tint="var(--color-surface)"
-            className="absolute -bottom-20 left-[12%] z-0 w-64 opacity-[0.12]"
-          />
           <div
             aria-hidden="true"
             className="absolute inset-0 z-[1]"
@@ -222,17 +163,15 @@ export function CaseStudyLayout({ study }: { study: CaseStudyContent }) {
                   className="u-rich-text u-measure mt-6"
                   dangerouslySetInnerHTML={{ __html: renderRichText(section.body) }}
                 />
-                {section.media?.map((block, j) => <Media key={j} block={block} />)}
+                {section.media?.map((block, j) => <CaseStudyMedia key={j} block={block} />)}
 
-                {/* the pull quote surfaces mid-story, over quiet water */}
                 {study.pullQuote && i === midpoint - 1 && (
-                  <aside className="relative my-24 md:my-32">
-                    <RippleField
-                      rings={6}
-                      className="absolute left-1/2 top-1/2 w-[130%] -translate-x-1/2 -translate-y-1/2 opacity-70"
-                    />
+                  <aside
+                    className="my-24 border-y py-10 text-center md:my-32 md:py-12"
+                    style={{ borderColor: 'color-mix(in srgb, var(--color-line) 86%, transparent)' }}
+                  >
                     <blockquote
-                      className="relative mx-auto max-w-xl text-center font-serif italic"
+                      className="mx-auto max-w-xl font-serif italic"
                       style={{ fontSize: 'var(--text-h1)', lineHeight: 1.2, color: accent }}
                     >
                       “{study.pullQuote}”

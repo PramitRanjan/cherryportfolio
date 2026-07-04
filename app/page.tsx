@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { getSiteContent } from '@/lib/site-content';
 import IntroAnimation from '@/components/IntroAnimation';
@@ -6,9 +7,8 @@ import { AnimatedEyebrow } from '@/components/AnimatedEyebrow';
 import { WorkIndex } from '@/components/WorkIndex';
 import FrameHandles from '@/components/motifs/FrameHandles';
 import KoiDrift from '@/components/motifs/KoiDrift';
-import AsciiArt from '@/components/motifs/AsciiArt';
 import StickerCard from '@/components/motifs/StickerCard';
-import GradientField from '@/components/motifs/GradientField';
+import { MarqueeRibbon } from '@/components/MarqueeRibbon';
 
 const CURSOR_CORNERS = ['tl', 'tr', 'bl', 'br'] as const;
 const CURSOR_COLORS = [
@@ -134,31 +134,7 @@ export default function Home() {
 
       {/* ============ marquee ribbon ============ */}
       {typeof copy.marquee === 'string' && copy.marquee && (
-        <div
-          aria-hidden="true"
-          className="home-marquee mt-4 overflow-hidden py-5"
-          style={{ borderTop: '1px solid var(--color-line)', borderBottom: '1px solid var(--color-line)' }}
-        >
-          <div className="u-marquee items-baseline gap-12 pr-12">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <span key={i} className="flex shrink-0 items-baseline gap-12">
-                <span
-                  className="font-serif italic"
-                  style={{
-                    fontSize: 'clamp(1.15rem, 1.8vw, 1.5rem)',
-                    color: 'var(--color-body)',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {copy.marquee as string}
-                </span>
-                <span aria-hidden="true" style={{ color: 'var(--color-accent)', fontSize: '0.95rem' }}>
-                  ✿
-                </span>
-              </span>
-            ))}
-          </div>
-        </div>
+        <MarqueeRibbon text={copy.marquee as string} />
       )}
 
       {/* ============ selected work ============ */}
@@ -192,19 +168,48 @@ export default function Home() {
       <section className="mx-auto mt-28 max-w-6xl px-6 md:mt-40">
         <div className="grid items-center gap-12 md:grid-cols-[auto_1fr] md:gap-20">
           <GsapReveal className="justify-self-center md:justify-self-start">
-            <StickerCard kind="polaroid" tilt={-3} className="w-60">
-              <GradientField
-                preset="everloop"
-                grain
-                className="flex aspect-square w-full items-center justify-center overflow-hidden"
+            <StickerCard
+              kind="polaroid"
+              tilt={-3}
+              className="w-60 border-[color:rgba(188,140,32,0.44)] bg-[#f7e3a3] shadow-[0_12px_34px_rgba(153,111,25,0.2)]"
+            >
+              <div
+                className="relative aspect-square w-full overflow-hidden"
+                style={{
+                  background:
+                    'linear-gradient(160deg, rgba(255, 242, 189, 0.95), rgba(237, 184, 70, 0.72))',
+                }}
               >
-                <AsciiArt form="flower" tint="var(--color-surface)" className="text-[9px] opacity-90" />
-              </GradientField>
+                <Image
+                  src="/images/1776141580005.png"
+                  alt="Portrait of Cherry Phan"
+                  fill
+                  sizes="(max-width: 768px) 240px, 320px"
+                  className="object-cover object-center"
+                  priority={false}
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 h-20"
+                  style={{
+                    background: 'linear-gradient(180deg, rgba(255, 246, 209, 0.58), transparent)',
+                  }}
+                />
+              </div>
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-10"
+                style={{
+                  background:
+                    'linear-gradient(135deg, rgba(248, 223, 138, 0.98), rgba(223, 168, 46, 0.96))',
+                  borderTop: '1px solid rgba(164, 119, 20, 0.28)',
+                }}
+              />
               <p
-                className="u-script absolute inset-x-0 bottom-2 text-center"
-                style={{ fontSize: '1.05rem', color: 'var(--color-body)' }}
+                className="absolute inset-x-0 bottom-[0.72rem] text-center u-eyebrow"
+                style={{ fontSize: '0.72rem', color: '#744f13' }}
               >
-                ( photo coming soon )
+                Cherry Phan
               </p>
             </StickerCard>
           </GsapReveal>

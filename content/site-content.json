@@ -11,16 +11,6 @@
       "body": "Quiet arguments against efficiency — and for warmth, ritual, and presence.",
       "items": [
         {
-          "title": "Aurora",
-          "oneliner": "A jewelry brand where fashion, legacy, and technology meet.",
-          "tags": [
-            "Branding",
-            "Product Design"
-          ],
-          "href": "/work/aurora",
-          "accent": "aurora"
-        },
-        {
           "title": "Everloop",
           "oneliner": "Turning past experiences into future motivation — Record, Reflect, Revisit.",
           "tags": [
@@ -54,6 +44,24 @@
             "/Case%20study%20images/Mugmood/1776200504593.jpeg",
             "/Case%20study%20images/Mugmood/1776200504677.jpeg"
           ]
+        },
+        {
+          "title": "Tessera",
+          "oneliner": "Turning fragmented in-between moments into simple, meaningful actions.",
+          "tags": [
+            "Product Design",
+            "Hackathon"
+          ],
+          "href": "/work/tessera",
+          "accent": "tessera",
+          "cover": "/Case%20study%20images/Tessera/1776712700665.jpeg",
+          "previewImages": [
+            "/Case%20study%20images/Tessera/1776712700665.jpeg",
+            "/Case%20study%20images/Tessera/1776712701004.jpeg",
+            "/Case%20study%20images/Tessera/1776712701173.jpeg",
+            "/Case%20study%20images/Tessera/1776712701663.jpeg",
+            "/Case%20study%20images/Tessera/1778638310019.gif"
+          ]
         }
       ]
     },
@@ -65,18 +73,8 @@
   },
   "workPage": {
     "heroTitle": "Work",
-    "heroBody": "Five projects about time, memory, and the small moments in between.",
+    "heroBody": "Four projects about time, memory, and the small moments in between.",
     "projects": [
-      {
-        "title": "Aurora",
-        "oneliner": "A jewelry brand where fashion, legacy, and technology meet.",
-        "tags": [
-          "Branding",
-          "Product Design"
-        ],
-        "href": "/work/aurora",
-        "accent": "aurora"
-      },
       {
         "title": "Everloop",
         "oneliner": "Turning past experiences into future motivation — Record, Reflect, Revisit.",
@@ -264,52 +262,6 @@
   ],
   "caseStudies": [
     {
-      "slug": "aurora",
-      "title": "Aurora",
-      "oneliner": "A jewelry brand where fashion, legacy, and technology meet.",
-      "type": "Branding / Product Design",
-      "tags": [
-        "Brand system",
-        "Tone of voice",
-        "3D",
-        "App design"
-      ],
-      "accent": "aurora",
-      "prev": {
-        "title": "Wally",
-        "href": "/work/wally"
-      },
-      "next": {
-        "title": "Everloop",
-        "href": "/work/everloop"
-      },
-      "pullQuote": "A locket can be a music box of memory.",
-      "sections": [
-        {
-          "key": "problem",
-          "eyebrow": "The idea",
-          "headline": "Jewelry that carries more than light",
-          "body": "Aurora is a jewelry brand built on the belief that fashion, legacy, and technology can meet in one object. The centerpiece is a locket — a *music box of memory* — a piece you wear because of what it holds, not just how it catches light."
-        },
-        {
-          "key": "role",
-          "eyebrow": "My role",
-          "body": "I built the brand system end to end: brand message, tone of voice, logo and logo color, typography, 3D product renders, and the app interface that lives alongside the physical pieces."
-        },
-        {
-          "key": "process",
-          "eyebrow": "Tone of voice",
-          "headline": "Inspiring. Comforting. Futuristic.",
-          "body": "The voice balances three registers — inspiring, comforting, futuristic — held together by consistency, authenticity, and connection. Every slide, label, and screen had to sound like the same warm, forward-looking brand."
-        },
-        {
-          "key": "solution",
-          "eyebrow": "The system",
-          "body": "The identity pairs an elegant italic serif with lush coral-to-peach gradients and halftone floral texture, carried across the deck, the 3D renders of the locket and necklace, and the app screens.\n\n*TODO(cherry): add deck frames, renders, and app screens.*"
-        }
-      ]
-    },
-    {
       "slug": "everloop",
       "title": "Everloop",
       "oneliner": "Turning past experiences into future motivation — Record, Reflect, Revisit.",
@@ -325,8 +277,8 @@
       "award": "1st place — CreateSC 2026 UI/UX Designathon, hosted by Innovative Design @ USC",
       "team": "With Aarya Mahapatra",
       "prev": {
-        "title": "Aurora",
-        "href": "/work/aurora"
+        "title": "Wally",
+        "href": "/work/wally"
       },
       "next": {
         "title": "Mugmood",
@@ -565,8 +517,8 @@
         "href": "/work/tessera"
       },
       "next": {
-        "title": "Aurora",
-        "href": "/work/aurora"
+        "title": "Everloop",
+        "href": "/work/everloop"
       },
       "sections": [
         {
