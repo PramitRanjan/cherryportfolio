@@ -209,7 +209,7 @@ export default function Home() {
                 className="absolute inset-x-0 bottom-[0.72rem] text-center u-eyebrow"
                 style={{ fontSize: '0.72rem', color: '#744f13' }}
               >
-                Cherry Phan
+                Hi Its Me, Cherry!
               </p>
             </StickerCard>
           </GsapReveal>

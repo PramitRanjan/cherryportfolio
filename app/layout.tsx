@@ -45,12 +45,26 @@ const script = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://cherryportfolio-kum1.vercel.app'),
   title: {
     default: 'Cherry Phan — Product & UX Designer',
     template: '%s — Cherry Phan',
   },
   description:
     'Design with empathy. Cherry Phan is a product & UX designer at SCAD who designs for slowness — memory, ritual, and the small moments we usually rush past.',
+  openGraph: {
+    title: 'Cherry Phan — Product & UX Designer',
+    description:
+      'Design with empathy. Cherry Phan is a product & UX designer at SCAD who designs for slowness — memory, ritual, and the small moments we usually rush past.',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cherry Phan — Product & UX Designer',
+    description:
+      'Design with empathy. Cherry Phan is a product & UX designer at SCAD who designs for slowness — memory, ritual, and the small moments we usually rush past.',
+    images: ['/twitter-image'],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

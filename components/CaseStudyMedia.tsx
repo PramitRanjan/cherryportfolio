@@ -1,20 +1,33 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { MediaBlock } from '@/lib/site-content-schema';
 import { isSafeEmbedUrl } from '@/lib/security';
 
 export function CaseStudyMedia({ block }: { block: MediaBlock }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const images = block.images ?? [];
 
   useEffect(() => {
     if (activeIndex === null) return;
 
+    const scrollY = window.scrollY;
     const previousOverflow = document.body.style.overflow;
+    const previousBodyPosition = document.body.style.position;
+    const previousBodyTop = document.body.style.top;
+    const previousBodyWidth = document.body.style.width;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+    const previousOverscroll = document.documentElement.style.overscrollBehavior;
+
+    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.overscrollBehavior = 'none';
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setActiveIndex(null);
@@ -30,7 +43,13 @@ export function CaseStudyMedia({ block }: { block: MediaBlock }) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => {
+      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.documentElement.style.overscrollBehavior = previousOverscroll;
       document.body.style.overflow = previousOverflow;
+      document.body.style.position = previousBodyPosition;
+      document.body.style.top = previousBodyTop;
+      document.body.style.width = previousBodyWidth;
+      window.scrollTo(0, scrollY);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [activeIndex, images.length]);
@@ -68,6 +87,18 @@ export function CaseStudyMedia({ block }: { block: MediaBlock }) {
       return (index + direction + images.length) % images.length;
     });
   };
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+  };
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null || images.length < 2) return;
+    const endX = event.changedTouches[0]?.clientX;
+    if (typeof endX !== 'number') return;
+    const deltaX = endX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(deltaX) < 48) return;
+    cycle(deltaX < 0 ? 1 : -1);
+  };
 
   return (
     <>
@@ -103,6 +134,7 @@ export function CaseStudyMedia({ block }: { block: MediaBlock }) {
             aria-modal="true"
             aria-label="Expanded case study image"
             onClick={() => setActiveIndex(null)}
+            onTouchMove={(event) => event.preventDefault()}
           >
             <button
               type="button"
@@ -137,12 +169,18 @@ export function CaseStudyMedia({ block }: { block: MediaBlock }) {
               </button>
             )}
 
-            <div className="mx-auto flex max-h-full w-full max-w-6xl flex-col gap-4" onClick={(event) => event.stopPropagation()}>
+            <div
+              className="mx-auto flex max-h-full w-full max-w-6xl flex-col gap-4"
+              onClick={(event) => event.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
                 className="overflow-hidden"
                 style={{
                   border: '1px solid rgba(252, 249, 242, 0.18)',
                   background: 'rgba(252, 249, 242, 0.04)',
+                  touchAction: 'pan-y',
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
