@@ -336,15 +336,13 @@ h3 {
   }
 
   .home-hero-koi-mobile {
-    top: 4.25rem;
-    right: -4rem;
-    width: 18rem;
-    height: 13rem;
+    top: 6rem;
+    right: 2.25rem;
+    width: 5.5rem;
+    height: 3.5rem;
     z-index: 0;
-    opacity: 0.48;
+    opacity: 0.4;
     filter: saturate(0.95);
-    transform: scale(0.52);
-    transform-origin: top right;
   }
 
   .home-hero-title-wrap {
@@ -418,9 +416,9 @@ h3 {
 
 @media (max-width: 430px) {
   :root {
-    --text-display: 3.95rem;
-    --text-h2: 1.75rem;
-    --text-body: 0.98rem;
+    --text-display: 3.34rem;
+    --text-h2: 1.56rem;
+    --text-body: 0.94rem;
   }
 
   .home-hero-section,
@@ -429,33 +427,32 @@ h3 {
   }
 
   .home-hero {
-    padding: 1.65rem 1rem calc(8.75rem + env(safe-area-inset-bottom));
+    padding: 1.65rem 1.1rem calc(8.85rem + env(safe-area-inset-bottom));
   }
 
   .home-hero-koi-mobile {
-    top: 4.1rem;
-    right: 1.25rem;
-    opacity: 0.42;
-    transform: scale(0.44);
+    top: 7.15rem;
+    right: max(2.25rem, env(safe-area-inset-right));
+    opacity: 0.36;
   }
 
   .home-hero-title-wrap {
-    width: min(100%, 18.75rem);
-    margin-top: 2.75rem;
+    width: min(100%, 16.45rem);
+    margin-top: 3.1rem;
   }
 
   .home-hero-name {
-    padding: 0.16em 0.3em 0.2em !important;
+    padding: 0.18em 0.32em 0.22em !important;
   }
 
   .home-hero-tagline {
-    max-width: 12em;
-    margin-top: 2.65rem;
+    max-width: 13em;
+    margin-top: 3rem;
   }
 
   .home-hero-intro {
     max-width: 28ch;
-    margin-top: 1.25rem;
+    margin-top: 1.35rem;
   }
 
   .home-hero-bottom {
@@ -482,6 +479,28 @@ h3 {
     transition-duration: 0.01ms !important;
   }
   .u-marquee {
-    transform: translateX(0);
+    animation: u-marquee 20s linear infinite !important;
+    animation-iteration-count: infinite !important;
+    transform: none;
+  }
+  .home-hero-koi-mobile [data-koi-swim='true'] {
+    animation: motif-koi-mobile-swim 13s var(--ease-drift) infinite alternate !important;
+    animation-iteration-count: infinite !important;
+  }
+  .motif-frame-cursor-inner {
+    animation: motif-frame-cursor-drift 5.2s var(--ease-drift) infinite !important;
+    animation-delay: calc(var(--cursor-i, 0) * -680ms) !important;
+    animation-iteration-count: infinite !important;
+  }
+  .motif-frame-cursor-arrow {
+    animation: motif-frame-cursor-tap 5.2s var(--ease-settle) infinite !important;
+    animation-delay: calc(var(--cursor-i, 0) * -680ms) !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+
+@media (max-width: 699px) and (prefers-reduced-motion: reduce) {
+  .u-marquee {
+    animation-duration: 14s !important;
   }
 }

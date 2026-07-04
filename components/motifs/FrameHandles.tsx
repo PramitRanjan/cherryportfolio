@@ -149,23 +149,28 @@ export default function FrameHandles({
           84% { transform: scale(0.92); }
           90% { transform: scale(1.04); }
         }
-        @media (min-width: 700px) and (prefers-reduced-motion: no-preference) {
-          .motif-frame-cursor-inner {
-            animation: motif-frame-cursor-drift 3.8s var(--ease-drift) infinite;
-            animation-delay: calc(var(--cursor-i, 0) * -680ms);
-          }
-          .motif-frame-cursor-arrow {
-            display: inline-flex;
-            transform-origin: 30% 20%;
-            animation: motif-frame-cursor-tap 3.8s var(--ease-settle) infinite;
-            animation-delay: calc(var(--cursor-i, 0) * -680ms);
-          }
+        .motif-frame-cursor-inner {
+          animation: motif-frame-cursor-drift 3.8s var(--ease-drift) infinite !important;
+          animation-delay: calc(var(--cursor-i, 0) * -680ms) !important;
+        }
+        .motif-frame-cursor-arrow {
+          display: inline-flex;
+          transform-origin: 30% 20%;
+          animation: motif-frame-cursor-tap 3.8s var(--ease-settle) infinite !important;
+          animation-delay: calc(var(--cursor-i, 0) * -680ms) !important;
         }
         @media (max-width: 699px) {
           .motif-frame-cursor {
             --cursor-offset: 165%;
-            --cursor-nudge: 7%;
+            --cursor-nudge: 8%;
             gap: 3px;
+          }
+          .motif-frame-cursor-inner {
+            --cursor-drift-x: 3px;
+            animation-duration: 5.2s !important;
+          }
+          .motif-frame-cursor-arrow {
+            animation-duration: 5.2s !important;
           }
           .motif-frame-cursor-arrow,
           .motif-frame-cursor-arrow svg {

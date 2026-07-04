@@ -229,6 +229,22 @@ export default function KoiDrift({ count = 2, className, scheme = 'paper', follo
           0% { offset-distance: 0%; }
           100% { offset-distance: 100%; }
         }
+        @keyframes motif-koi-mobile-swim {
+          0% { transform: translate3d(-8px, 2px, 0) rotate(-7deg); }
+          42% { transform: translate3d(18px, -9px, 0) rotate(5deg); }
+          100% { transform: translate3d(6px, 10px, 0) rotate(-3deg); }
+        }
+        @media (max-width: 699px) {
+          .home-hero-koi-mobile [data-koi-swim='true'] {
+            top: 0 !important;
+            left: 0 !important;
+            offset-path: none !important;
+            offset-distance: 0 !important;
+            offset-rotate: 0deg !important;
+            animation: motif-koi-mobile-swim 13s var(--ease-drift) infinite alternate !important;
+            will-change: transform;
+          }
+        }
       `}</style>
       {followCursor && fish[0] ? (
         <div
@@ -250,6 +266,7 @@ export default function KoiDrift({ count = 2, className, scheme = 'paper', follo
       ) : fish.map((f, i) => (
         <div
           key={f.id}
+          data-koi-swim="true"
           style={{
             position: 'absolute',
             top: 0,
