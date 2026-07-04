@@ -230,9 +230,11 @@ export default function KoiDrift({ count = 2, className, scheme = 'paper', follo
           100% { offset-distance: 100%; }
         }
         @keyframes motif-koi-mobile-swim {
-          0% { transform: translate3d(-8px, 2px, 0) rotate(-7deg); }
-          42% { transform: translate3d(18px, -9px, 0) rotate(5deg); }
-          100% { transform: translate3d(6px, 10px, 0) rotate(-3deg); }
+          0% { transform: translate3d(clamp(9rem, 56vw, 15rem), 1.1rem, 0) rotate(176deg); }
+          28% { transform: translate3d(clamp(4.25rem, 28vw, 8rem), 0.05rem, 0) rotate(194deg); }
+          54% { transform: translate3d(0.35rem, 2.35rem, 0) rotate(154deg); }
+          76% { transform: translate3d(clamp(4.5rem, 31vw, 9rem), 4.2rem, 0) rotate(7deg); }
+          100% { transform: translate3d(clamp(9rem, 56vw, 15rem), 1.1rem, 0) rotate(-6deg); }
         }
         @media (max-width: 699px) {
           .home-hero-koi-mobile [data-koi-swim='true'] {
@@ -241,7 +243,7 @@ export default function KoiDrift({ count = 2, className, scheme = 'paper', follo
             offset-path: none !important;
             offset-distance: 0 !important;
             offset-rotate: 0deg !important;
-            animation: motif-koi-mobile-swim 13s var(--ease-drift) infinite alternate !important;
+            animation: motif-koi-mobile-swim 19s linear infinite !important;
             will-change: transform;
           }
         }

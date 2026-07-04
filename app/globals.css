@@ -317,15 +317,20 @@ h3 {
     --text-h2: 1.95rem;
     --text-body: 1.02rem;
     --text-eyebrow: 0.7rem;
+    --home-mobile-min-height: 800px;
   }
 
   .u-eyebrow {
     letter-spacing: 0.11em;
   }
 
+  .home-hero-section,
   .home-hero {
-    min-height: calc(100svh - 4rem);
-    padding: 1.75rem 1.25rem 7.6rem;
+    min-height: max(var(--home-mobile-min-height), calc(100svh - 4rem));
+  }
+
+  .home-hero {
+    padding: 1.75rem 1.25rem calc(7.6rem + env(safe-area-inset-bottom));
     z-index: 1;
   }
 
@@ -336,13 +341,14 @@ h3 {
   }
 
   .home-hero-koi-mobile {
-    top: 6rem;
-    right: 2.25rem;
-    width: 5.5rem;
-    height: 3.5rem;
+    top: 6.65rem;
+    left: 50%;
+    width: min(82vw, 22rem);
+    height: 8.75rem;
     z-index: 0;
-    opacity: 0.4;
+    opacity: 0.42;
     filter: saturate(0.95);
+    transform: translateX(-50%);
   }
 
   .home-hero-title-wrap {
@@ -423,7 +429,7 @@ h3 {
 
   .home-hero-section,
   .home-hero {
-    min-height: calc(100dvh - 4rem);
+    min-height: max(var(--home-mobile-min-height), calc(100dvh - 4rem));
   }
 
   .home-hero {
@@ -432,8 +438,7 @@ h3 {
 
   .home-hero-koi-mobile {
     top: 7.15rem;
-    right: max(2.25rem, env(safe-area-inset-right));
-    opacity: 0.36;
+    opacity: 0.38;
   }
 
   .home-hero-title-wrap {
@@ -479,28 +484,6 @@ h3 {
     transition-duration: 0.01ms !important;
   }
   .u-marquee {
-    animation: u-marquee 20s linear infinite !important;
-    animation-iteration-count: infinite !important;
-    transform: none;
-  }
-  .home-hero-koi-mobile [data-koi-swim='true'] {
-    animation: motif-koi-mobile-swim 13s var(--ease-drift) infinite alternate !important;
-    animation-iteration-count: infinite !important;
-  }
-  .motif-frame-cursor-inner {
-    animation: motif-frame-cursor-drift 5.2s var(--ease-drift) infinite !important;
-    animation-delay: calc(var(--cursor-i, 0) * -680ms) !important;
-    animation-iteration-count: infinite !important;
-  }
-  .motif-frame-cursor-arrow {
-    animation: motif-frame-cursor-tap 5.2s var(--ease-settle) infinite !important;
-    animation-delay: calc(var(--cursor-i, 0) * -680ms) !important;
-    animation-iteration-count: infinite !important;
-  }
-}
-
-@media (max-width: 699px) and (prefers-reduced-motion: reduce) {
-  .u-marquee {
-    animation-duration: 14s !important;
+    transform: translateX(0);
   }
 }
