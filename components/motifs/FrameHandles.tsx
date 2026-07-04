@@ -33,6 +33,14 @@ const HANDLE_POSITIONS = [
 /** A single multiplayer-style cursor: pointer arrow + name pill. */
 function Cursor({ label, color, corner = 'tr', index = 0 }: FrameCursor & { index?: number }) {
   const flip = corner === 'tr' || corner === 'br';
+  const arrowRotation =
+    corner === 'tl'
+      ? 'rotate(135deg)'
+      : corner === 'tr'
+        ? 'rotate(-135deg)'
+        : corner === 'bl'
+          ? 'rotate(45deg)'
+          : 'rotate(-45deg)';
   return (
     <span
       aria-hidden="true"
@@ -52,7 +60,7 @@ function Cursor({ label, color, corner = 'tr', index = 0 }: FrameCursor & { inde
           } as CSSProperties}
       >
         <span className="motif-frame-cursor-arrow">
-          <svg viewBox="0 0 12 14" fill="none" style={{ transform: flip ? 'scaleX(-1)' : undefined }}>
+          <svg viewBox="0 0 12 14" fill="none" style={{ transform: arrowRotation }}>
             <path d="M1 1L10.5 7L6 8L4 12.5L1 1Z" fill={color} stroke="var(--color-surface)" strokeWidth="0.75" strokeLinejoin="round" />
           </svg>
         </span>
@@ -127,6 +135,9 @@ export default function FrameHandles({
           height: 18px;
         }
         .motif-frame-cursor-label {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           background: var(--cursor-color);
           color: white;
           font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -137,6 +148,7 @@ export default function FrameHandles({
           padding: 5px 9px 6px;
           border-radius: 4px;
           box-shadow: 0 2px 5px rgba(23, 19, 16, 0.24);
+          text-align: center;
           text-transform: none;
         }
         @keyframes motif-frame-cursor-drift {
@@ -161,8 +173,8 @@ export default function FrameHandles({
         }
         @media (max-width: 699px) {
           .motif-frame-cursor {
-            --cursor-offset: 165%;
-            --cursor-nudge: 8%;
+            --cursor-offset: 138%;
+            --cursor-nudge: 6%;
             gap: 3px;
           }
           .motif-frame-cursor-inner {
@@ -178,9 +190,9 @@ export default function FrameHandles({
             height: 13px;
           }
           .motif-frame-cursor-label {
-            font-size: 11px;
-            line-height: 13px;
-            padding: 4px 7px 5px;
+            font-size: 10px;
+            line-height: 12px;
+            padding: 3px 6px 4px;
             box-shadow: 0 2px 4px rgba(23, 19, 16, 0.22);
           }
         }

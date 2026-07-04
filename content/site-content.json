@@ -29,7 +29,14 @@
           ],
           "href": "/work/everloop",
           "accent": "everloop",
-          "year": "2026"
+          "year": "2026",
+          "cover": "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314.jpeg",
+          "previewImages": [
+            "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314.jpeg",
+            "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-2.jpeg",
+            "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-3.jpeg",
+            "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-4.jpeg"
+          ]
         },
         {
           "title": "Mugmood",
@@ -39,7 +46,14 @@
             "Concept"
           ],
           "href": "/work/mugmood",
-          "accent": "mugmood"
+          "accent": "mugmood",
+          "cover": "/Case%20study%20images/Mugmood/1776200504366.jpeg",
+          "previewImages": [
+            "/Case%20study%20images/Mugmood/1776200504366.jpeg",
+            "/Case%20study%20images/Mugmood/1776200504536.jpeg",
+            "/Case%20study%20images/Mugmood/1776200504593.jpeg",
+            "/Case%20study%20images/Mugmood/1776200504677.jpeg"
+          ]
         }
       ]
     },
@@ -72,7 +86,14 @@
         ],
         "href": "/work/everloop",
         "accent": "everloop",
-        "year": "2026"
+        "year": "2026",
+        "cover": "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314.jpeg",
+        "previewImages": [
+          "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314.jpeg",
+          "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-2.jpeg",
+          "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-3.jpeg",
+          "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-4.jpeg"
+        ]
       },
       {
         "title": "Mugmood",
@@ -82,7 +103,14 @@
           "Concept"
         ],
         "href": "/work/mugmood",
-        "accent": "mugmood"
+        "accent": "mugmood",
+        "cover": "/Case%20study%20images/Mugmood/1776200504366.jpeg",
+        "previewImages": [
+          "/Case%20study%20images/Mugmood/1776200504366.jpeg",
+          "/Case%20study%20images/Mugmood/1776200504536.jpeg",
+          "/Case%20study%20images/Mugmood/1776200504593.jpeg",
+          "/Case%20study%20images/Mugmood/1776200504677.jpeg"
+        ]
       },
       {
         "title": "Tessera",
@@ -92,7 +120,15 @@
           "Hackathon"
         ],
         "href": "/work/tessera",
-        "accent": "tessera"
+        "accent": "tessera",
+        "cover": "/Case%20study%20images/Tessera/1776712700665.jpeg",
+        "previewImages": [
+          "/Case%20study%20images/Tessera/1776712700665.jpeg",
+          "/Case%20study%20images/Tessera/1776712701004.jpeg",
+          "/Case%20study%20images/Tessera/1776712701173.jpeg",
+          "/Case%20study%20images/Tessera/1776712701663.jpeg",
+          "/Case%20study%20images/Tessera/1778638310019.gif"
+        ]
       },
       {
         "title": "Wally",
@@ -102,7 +138,15 @@
           "Character Design"
         ],
         "href": "/work/wally",
-        "accent": "wally"
+        "accent": "wally",
+        "cover": "/Case%20study%20images/Wally/1778638310054.jpeg",
+        "previewImages": [
+          "/Case%20study%20images/Wally/1778638310054.jpeg",
+          "/Case%20study%20images/Wally/1778638310104.jpeg",
+          "/Case%20study%20images/Wally/1778638310887.jpeg",
+          "/Case%20study%20images/Wally/1778638312213.jpeg",
+          "/Case%20study%20images/Wally/1778638310166.gif"
+        ]
       }
     ]
   },
@@ -276,6 +320,7 @@
         "Designathon"
       ],
       "accent": "everloop",
+      "heroImage": "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314.jpeg",
       "year": "2026",
       "award": "1st place — CreateSC 2026 UI/UX Designathon, hosted by Innovative Design @ USC",
       "team": "With Aarya Mahapatra",
@@ -290,27 +335,62 @@
       "pullQuote": "Content gains meaning over time.",
       "sections": [
         {
-          "key": "problem",
-          "eyebrow": "The problem",
-          "headline": "Resolutions fade because we design for efficiency",
-          "body": "The designathon theme was *Design Against Efficiency*. We looked at New Year's resolutions — how they start with real feeling and dissolve into guilt — and asked what would happen if, instead of optimizing people toward their goals, we helped their own past experiences become the motivation."
+          "key": "overview",
+          "eyebrow": "Overview",
+          "headline": "A 1st-place designathon project about long-term motivation",
+          "body": "Everloop was created during CreateSC 2026, a UI/UX Designathon hosted by Innovative Design at USC. The theme was **Design Against Efficiency**, which pushed us to think beyond speed, optimization, and short-term engagement.\n\nInstead of designing another fast productivity tool, we asked how past experiences could help people stay connected to future goals.",
+          "media": [
+            {
+              "kind": "gallery",
+              "layout": "split",
+              "caption": "Screens from the CreateSC 2026 presentation and interface direction.",
+              "images": [
+                "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314.jpeg",
+                "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-2.jpeg"
+              ]
+            }
+          ]
         },
         {
-          "key": "research",
-          "eyebrow": "The concept",
+          "key": "challenge",
+          "eyebrow": "Challenge",
+          "headline": "Responding to design against efficiency",
+          "body": "New Year's resolutions often fail because the tools around them are designed for speed, streaks, and short-term optimization. We wanted to challenge that pattern by designing for continuity instead: how memory, reflection, and revisiting past effort can support motivation over time."
+        },
+        {
+          "key": "concept",
+          "eyebrow": "Concept",
           "headline": "Memory architecture",
-          "body": "We designed for how content *gains meaning over time*. A note you write today is a seed; the product's job is to bring it back to you at the moment it matters, grown into encouragement."
+          "body": "Our concept centered on **Memory Architecture**: the idea that content gains meaning over time. A note you write today is not only a record of progress; it can become encouragement later, when motivation is low and a reminder of why you started matters most."
         },
         {
-          "key": "process",
-          "eyebrow": "The structure",
-          "headline": "Record → Reflect → Revisit",
-          "body": "Everloop is built on the three R's. **Record** captures moments as scrapbook-style cards. **Reflect** turns them over gently — a daily tracker, prompts that ask rather than demand. **Revisit** closes the loop: *words from yourself*, delivered back like an envelope from someone who believes in you."
+          "key": "solution",
+          "eyebrow": "Solution",
+          "headline": "Record, reflect, revisit",
+          "body": "Everloop helps users stay consistent with New Year's resolutions through a continuous feedback loop built around three actions:\n\n- **Record** experiences and progress\n- **Reflect** on what was learned or achieved\n- **Revisit** those moments when motivation is low\n\nBy connecting these actions, Everloop turns memory into a source of motivation rather than treating productivity as speed.",
+          "media": [
+            {
+              "kind": "gallery",
+              "layout": "split",
+              "caption": "The system focuses on an emotional loop rather than a fast task loop.",
+              "images": [
+                "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-3.jpeg",
+                "/Case%20study%20images/USC%20one%20forgot%20name/1776175775314-4.jpeg"
+              ]
+            }
+          ]
         },
         {
-          "key": "outcomes",
-          "eyebrow": "The outcome",
-          "body": "Everloop took **1st place** at the CreateSC 2026 UI/UX Designathon, hosted by Innovative Design @ USC.\n\n*TODO(cherry): add app screens — Record / Reflect / Revisit cards, daily tracker, the envelope.*"
+          "key": "outcome",
+          "eyebrow": "Outcome",
+          "headline": "1st place at CreateSC 2026",
+          "body": "Everloop placed **1st** at the CreateSC 2026 UI/UX Designathon hosted by Innovative Design at USC. The project became a milestone not only because of the result, but because it pushed me to think more deeply about behavior design, habit formation, and designing for long-term impact instead of short-term engagement."
+        },
+        {
+          "key": "reflection",
+          "eyebrow": "Reflection",
+          "headline": "Designing for impact over engagement",
+          "body": "This project clarified a direction I keep returning to: products can help people by slowing them down, helping them remember, and reconnecting them with their own progress. Everloop made that idea tangible."
         }
       ]
     },
@@ -325,6 +405,7 @@
         "Vietnamese coffee culture"
       ],
       "accent": "mugmood",
+      "heroImage": "/Case%20study%20images/Mugmood/1776200504366.jpeg",
       "prev": {
         "title": "Everloop",
         "href": "/work/everloop"
@@ -336,22 +417,56 @@
       "pullQuote": "Whenever everything feels fast, choose slow.",
       "sections": [
         {
-          "key": "problem",
-          "eyebrow": "The prompt",
-          "headline": "What do we do with the waiting?",
-          "body": "Mugmood began with a SCAD ClubHouse \"Async\" competition prompt about slowing down. Coffee gives you a built-in pause — the minutes while it brews — and we usually spend them scrolling past our own lives."
+          "key": "overview",
+          "eyebrow": "Overview",
+          "headline": "A coffee-inspired concept about slowing down",
+          "body": "Mugmood started from a design prompt about slowing down. Instead of treating waiting as dead time, the concept asks what it would mean to turn a small daily pause into a ritual of reflection."
         },
         {
-          "key": "research",
-          "eyebrow": "Where it comes from",
+          "key": "inspiration",
+          "eyebrow": "Inspiration",
           "headline": "A porch in Vietnam",
-          "body": "The real source is a childhood memory: my grandpa waiting for his coffee to brew on the porch. Sài Gòn coffee talk. The unhurried pace of Đà Nẵng. Vietnamese coffee culture treats waiting as part of the drink — Mugmood just carries that into a product."
+          "body": "While brainstorming, I kept returning to a childhood memory: my grandpa sitting on the front porch, waiting for his coffee to brew. That moment felt peaceful, unhurried, and deeply human.\n\nThe project draws from Vietnamese coffee culture, especially the quiet rhythm of street coffee conversations in Sài Gòn and the slower everyday pace I associate with Đà Nẵng.",
+          "media": [
+            {
+              "kind": "gallery",
+              "layout": "split",
+              "caption": "Visual references from the LinkedIn handoff folder for Mugmood.",
+              "images": [
+                "/Case%20study%20images/Mugmood/1776200504366.jpeg",
+                "/Case%20study%20images/Mugmood/1776200504536.jpeg"
+              ]
+            }
+          ]
         },
         {
-          "key": "solution",
-          "eyebrow": "The app",
-          "headline": "Brew time becomes reflection time",
-          "body": "While your coffee brews, Mugmood offers one gentle daily prompt — *\"Write about something you're grateful for today.\"* Moka-pot iconography, soft stars, amber warmth. Nothing to optimize, no streaks to lose. Just a ritual.\n\n*TODO(cherry): add phone mockups and the moka pot illustration.*"
+          "key": "concept",
+          "eyebrow": "Concept",
+          "headline": "A ritual-based experience that helps users pause",
+          "body": "I wanted Mugmood to capture the feeling of choosing a slower moment when everything around you feels too fast. Instead of treating productivity as speed, the concept asks users to pause, sit with a feeling, and reconnect with themselves through a small ritual."
+        },
+        {
+          "key": "visual-direction",
+          "eyebrow": "Visual direction",
+          "headline": "Warm, calm, coffee-inspired",
+          "body": "Mugmood became a visual and interaction exploration around mood, memory, and slowness. Warm coffee tones, soft iconography, and a gentle editorial rhythm support the idea that reflection can be comforting rather than performative.",
+          "media": [
+            {
+              "kind": "gallery",
+              "layout": "split",
+              "caption": "Mugmood visuals lean into warmth, mood, and quiet pacing.",
+              "images": [
+                "/Case%20study%20images/Mugmood/1776200504593.jpeg",
+                "/Case%20study%20images/Mugmood/1776200504677.jpeg"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "reflection",
+          "eyebrow": "Reflection",
+          "headline": "Designing from memory",
+          "body": "This project reminded me that cultural memory can be a real design material. Mugmood is not just about coffee. It is about the kind of slowness that lives inside everyday rituals and the feeling of home those rituals can hold."
         }
       ]
     },
@@ -366,6 +481,7 @@
         "Team project"
       ],
       "accent": "tessera",
+      "heroImage": "/Case%20study%20images/Tessera/1776712700665.jpeg",
       "team": "With Steven Yanzhi Chen, Anna Vorontsova, and Jiwan Park — Cornell UX Design Club (CUxD) hackathon",
       "prev": {
         "title": "Mugmood",
@@ -378,21 +494,56 @@
       "pullQuote": "Use QuickStart to make the most of your small moments.",
       "sections": [
         {
+          "key": "overview",
+          "eyebrow": "Overview",
+          "headline": "A calm productivity companion for in-between moments",
+          "body": "Tessera began with a small observation: most of us reach for our phones during the tiny gaps in the day. Waiting for the bus, standing in line, or sitting between plans can quickly become another moment of automatic scrolling.\n\nDuring a design hackathon with Cornell UX Design Club, our team explored how those small pockets of time could become more intentional."
+        },
+        {
           "key": "problem",
-          "eyebrow": "The problem",
-          "headline": "The day is full of tiles we throw away",
-          "body": "Waiting for the bus. Standing in line. The five minutes before a meeting. These fragments default to mindless scrolling — not because we choose it, but because nothing smaller than a feed fits the gap. A *tessera* is a single mosaic tile; the name is the thesis."
+          "eyebrow": "Problem",
+          "headline": "Fragmented time becomes mindless scrolling",
+          "body": "Students and Gen Z users often default to mindless scrolling during fragmented moments because most digital tools are built either for full attention or endless distraction. We wanted to design for the in-between: small pockets of time that still deserve intention."
         },
         {
           "key": "solution",
-          "eyebrow": "The app",
-          "headline": "Small moments, simple actions",
-          "body": "Tessera offers actions sized to the gap: a quick reflection, a small goal, a distraction-free to-do with a timer. *QuickStart* matches the moment to the action so the choice never costs more than the moment itself."
+          "eyebrow": "Solution",
+          "headline": "Simple, low-friction micro-actions",
+          "body": "We designed Tessera as a calm productivity companion for fragmented moments, helping users write reflections, set goals, create short to-do lists, and complete timed actions without getting pulled into distraction.",
+          "media": [
+            {
+              "kind": "gallery",
+              "layout": "split",
+              "caption": "LinkedIn images from the Cornell UX Design Club hackathon build.",
+              "images": [
+                "/Case%20study%20images/Tessera/1776712700665.jpeg",
+                "/Case%20study%20images/Tessera/1776712701004.jpeg"
+              ]
+            }
+          ]
         },
         {
-          "key": "role",
-          "eyebrow": "My role",
-          "body": "I designed UI components and shaped the visual identity — the blue-to-lilac calm that keeps Tessera feeling like a breath, not another demand.\n\n*TODO(cherry): add phone mockups.*"
+          "key": "contribution",
+          "eyebrow": "Contribution",
+          "headline": "UI components and visual identity",
+          "body": "My main contribution was designing UI components and helping shape the visual identity. I focused on making the product feel calm, low-friction, and visually coherent even within the pace of a hackathon."
+        },
+        {
+          "key": "reflection",
+          "eyebrow": "Reflection",
+          "headline": "Shared constraints, quick decisions, real friendships",
+          "body": "The project became memorable beyond the screen: cancelled food plans, one meal a day, and a very hungry team somehow turned into part of the story. More than just a hackathon project, Tessera became a reminder that design is often built through shared constraints, fast decisions, and the friendships formed while solving the problem together.",
+          "media": [
+            {
+              "kind": "gallery",
+              "layout": "split",
+              "caption": "Additional Tessera images from the handoff folder.",
+              "images": [
+                "/Case%20study%20images/Tessera/1776712701173.jpeg",
+                "/Case%20study%20images/Tessera/1776712701663.jpeg"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -407,7 +558,8 @@
         "Team project"
       ],
       "accent": "wally",
-      "team": "Team led by Aarya Mahapatra, with Ashley Cho, Jiwan Park, and Anna Vorontsova",
+      "heroImage": "/Case%20study%20images/Wally/1778638310054.jpeg",
+      "team": "Aarya Mahapatra, Ashley Cho, Jiwan Park, Anna Vorontsova, and Pramit Ranjan",
       "prev": {
         "title": "Tessera",
         "href": "/work/tessera"
@@ -418,16 +570,56 @@
       },
       "sections": [
         {
-          "key": "problem",
-          "eyebrow": "The problem",
-          "headline": "Money is the class no one teaches",
-          "body": "College students are handed real financial stakes with no curriculum. Wally tackles financial literacy by putting learning, saving, and managing money in one friendly place — my first university UX project."
+          "key": "overview",
+          "eyebrow": "Overview",
+          "headline": "A first UX class project about student financial literacy",
+          "body": "Wally was my first major UX class project and a strong starting point for my design journey. Our team focused on a real student problem: financial literacy matters, but most college students do not have a simple place to learn money skills, save, and stay on top of everyday financial decisions."
         },
         {
-          "key": "role",
-          "eyebrow": "My role",
-          "headline": "Drawing the guide",
-          "body": "I designed **Wally himself** — the mascot who walks you through your money without judgment. Character design is where my illustration side meets product: a face makes a scary subject approachable in a way no empty state ever will.\n\n*TODO(cherry): add Wally character sheets and app screens.*"
+          "key": "problem",
+          "eyebrow": "Problem",
+          "headline": "Students need one place to learn, save, and manage money",
+          "body": "Financial literacy is essential for college students, but students often lack one clear place to learn, save, and manage their money habits. We wanted the app to feel educational without becoming intimidating."
+        },
+        {
+          "key": "solution",
+          "eyebrow": "Solution",
+          "headline": "A friendly student wallet app",
+          "body": "We designed Wally as a student wallet app that brings learning and money management into one approachable experience. The project helped me understand how research, interface structure, prototyping, storytelling, and character design all work together inside a product.",
+          "media": [
+            {
+              "kind": "gallery",
+              "layout": "split",
+              "caption": "Wally app and character materials from the LinkedIn handoff images.",
+              "images": [
+                "/Case%20study%20images/Wally/1778638310054.jpeg",
+                "/Case%20study%20images/Wally/1778638310104.jpeg"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "contribution",
+          "eyebrow": "Contribution",
+          "headline": "Wally character design and visual direction",
+          "body": "My main contribution was creating the Wally character and supporting the team's visual direction. That work taught me how personality can make a functional product feel more approachable without losing clarity."
+        },
+        {
+          "key": "reflection",
+          "eyebrow": "Reflection",
+          "headline": "An early lesson in collaborative UX",
+          "body": "I also learned very quickly how easy it is to get lost inside a Figma file when the system grows. That became part of the learning: staying organized, designing with the team in mind, and building something that felt friendly without losing function.\n\nLooking back, Wally feels like a checkpoint from the beginning of my UX journey. It was a project about financial literacy, but it also taught me how much good design depends on collaboration, clarity, and showing up consistently with a team.",
+          "media": [
+            {
+              "kind": "gallery",
+              "layout": "split",
+              "caption": "Additional Wally process and presentation frames.",
+              "images": [
+                "/Case%20study%20images/Wally/1778638310887.jpeg",
+                "/Case%20study%20images/Wally/1778638312213.jpeg"
+              ]
+            }
+          ]
         }
       ]
     }

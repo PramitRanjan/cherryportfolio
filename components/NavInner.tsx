@@ -42,13 +42,16 @@ export function NavInner({ links }: { links: NavLink[] }) {
   useEffect(() => {
     if (!menuOpen) return;
     const prevOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setMenuOpen(false);
     };
     window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = prevOverflow;
+      document.documentElement.style.overflow = prevHtmlOverflow;
       window.removeEventListener('keydown', onKey);
     };
   }, [menuOpen]);
@@ -134,45 +137,52 @@ export function NavInner({ links }: { links: NavLink[] }) {
             id="mobile-nav-overlay"
             role="dialog"
             aria-modal="true"
-            className="fixed inset-0 z-50 flex flex-col items-start justify-center gap-5 overflow-hidden bg-[color:var(--color-bg)] px-8 pb-12 pt-24 md:hidden"
+            className="fixed inset-0 z-50 flex min-h-[100dvh] flex-col items-start justify-start overflow-y-auto overscroll-contain bg-[color:var(--color-bg)] px-8 md:hidden"
             initial={{ opacity: 0, y: reduceMotion ? 0 : -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: reduceMotion ? 0 : -12 }}
             transition={{ duration: reduceMotion ? 0 : 0.6, ease: EASE_DRIFT }}
+            style={{
+              paddingTop: 'calc(5.5rem + env(safe-area-inset-top))',
+              paddingBottom: 'max(2rem, calc(1.5rem + env(safe-area-inset-bottom)))',
+            }}
           >
             <div aria-hidden="true" className="u-gridlines absolute inset-0 opacity-[0.28]" />
             <button
               type="button"
               className="absolute right-6 top-5 z-10 inline-flex min-h-11 items-center justify-center font-mono text-[length:var(--text-meta)] lowercase tracking-[0.08em] text-[color:var(--color-ink)] transition-[color,scale] active:scale-[0.96]"
               onClick={() => setMenuOpen(false)}
+              style={{ top: 'calc(1.1rem + env(safe-area-inset-top))' }}
             >
               ( close )
             </button>
 
-            {links.map((link, i) => {
-              const active = isActive(pathname, link.href);
-              return (
-                <motion.div
-                  key={link.key}
-                  initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: reduceMotion ? 0 : 0.6,
-                    ease: EASE_DRIFT,
-                    delay: reduceMotion ? 0 : 0.08 * i,
-                  }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="relative z-10 font-serif text-[length:var(--text-h1)] italic leading-none transition-[color,scale] active:scale-[0.96]"
-                    style={{ color: active ? 'var(--color-accent)' : 'var(--color-ink)' }}
+            <div className="relative z-10 flex min-h-full w-full flex-col justify-center gap-5 py-4">
+              {links.map((link, i) => {
+                const active = isActive(pathname, link.href);
+                return (
+                  <motion.div
+                    key={link.key}
+                    initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: reduceMotion ? 0 : 0.6,
+                      ease: EASE_DRIFT,
+                      delay: reduceMotion ? 0 : 0.08 * i,
+                    }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              );
-            })}
+                    <Link
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="relative z-10 font-serif text-[length:var(--text-h1)] italic leading-none transition-[color,scale] active:scale-[0.96]"
+                      style={{ color: active ? 'var(--color-accent)' : 'var(--color-ink)' }}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
