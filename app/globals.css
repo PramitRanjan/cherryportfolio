@@ -1,0 +1,487 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   Cherry Phan — design tokens
+   Every visual decision routes through these. Components must
+   reference tokens, never raw hex.
+   ============================================================ */
+
+:root {
+  /* --- color: warm paper ground, ink that's actually dark, punchy pops --- */
+  --color-bg: #f3ecdd; /* warm cream paper, a shade deeper */
+  --color-surface: #faf6ea;
+  --color-ink: #171310; /* near-black warm ink */
+  --color-body: #3b342b;
+  --color-muted: #7e7364;
+  --color-line: rgba(23, 19, 16, 0.2);
+  --color-accent: #d8351f; /* cherry red — the fire-engine pop from her moodboard, and literally her name */
+  --color-accent-2: #2c46c7; /* cobalt — the Figma-native blue */
+  --color-pink: #e2679a; /* her pink — lives in project palettes, not everywhere */
+  --color-pop-red: var(--color-accent);
+  --color-pop-lime: #b7c321;
+  --color-sage: #9ea37d;
+  --color-terracotta: #b9532f;
+  --color-oxblood: #6e241d;
+  --color-amber: #de9526;
+  --color-peach: #f0a97a;
+  --color-lilac: #a78fdd;
+
+  /* --- per-project accents + gradient stops (content `accent` field) --- */
+  --accent-aurora: #e0508c;
+  --grad-aurora: #f0987f, #e75e92, #f6bb82;
+  --accent-mugmood: #d98a1f;
+  --grad-mugmood: #f2bb3e, #de8b25, #b45c17;
+  --accent-everloop: #e75e92;
+  --grad-everloop: #f27fa2, #f3a379, #fad3a8;
+  --accent-tessera: #5a7de0;
+  --grad-tessera: #7fa3f0, #a78fdd, #e0a3cb;
+  /* TODO(cherry): confirm Wally's accent color — cornflower placeholder */
+  --accent-wally: #5d77f5;
+  --grad-wally: #5d77f5, #a9bcfa;
+
+  /* --- fluid type scale — editorial drama --- */
+  --text-display: clamp(4rem, 12vw, 11rem);
+  --text-hero: clamp(2.75rem, 7vw, 6rem);
+  --text-h1: clamp(2.25rem, 4.5vw, 3.75rem);
+  --text-h2: clamp(1.6rem, 3vw, 2.5rem);
+  --text-body: clamp(1rem, 1.1vw, 1.125rem);
+  --text-meta: 0.8125rem;
+  --text-eyebrow: 0.75rem;
+
+  /* --- motion: breathes, never snaps --- */
+  --motion-slow: 900ms;
+  --motion-med: 600ms;
+  --motion-fast: 300ms;
+  --ease-drift: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-y: 28px;
+  --reveal-blur: 10px;
+}
+
+/* next/font sets --font-zodiak/--font-gs/--font-frag/--font-caveat on <html>.
+   Map them to the tokens components reference (:root aliases) AND to Tailwind's
+   font-serif / font-sans / font-mono utilities (@theme). Distinct names on
+   purpose — a self-reference here once made font resolution a cascade race. */
+:root {
+  --font-serif: var(--font-zodiak);
+  --font-sans: var(--font-gs);
+  --font-mono: var(--font-frag);
+  --font-script: var(--font-caveat);
+  --cursor-blossom: url('/cursor-blossom.png?v=flower-glyph') 16 16;
+}
+
+@theme inline {
+  --font-serif: var(--font-zodiak);
+  --font-sans: var(--font-gs);
+  --font-mono: var(--font-frag);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  cursor: var(--cursor-blossom), auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-body);
+  cursor: var(--cursor-blossom), auto;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+[role='button'] {
+  cursor: var(--cursor-blossom), pointer;
+}
+
+/* the whole site sits on paper — one fixed grain pass over everything */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-ink);
+  font-family: var(--font-serif), Georgia, serif;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-surface);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   Utilities (the motif surface treatments)
+   ============================================================ */
+
+/* grain — paper/film noise overlay. Apply to any positioned element. */
+.u-grain {
+  position: relative;
+}
+.u-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* visible editorial layout grid — designerly scaffold for hero/section moments */
+.u-gridlines {
+  background-image: linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  background-size: clamp(4rem, 12vw, 10rem) clamp(4rem, 12vw, 10rem);
+}
+
+/* reading measure */
+.u-measure {
+  max-width: 65ch;
+}
+
+/* ============================================================
+   Home hero
+   ============================================================ */
+
+.home-hero-section {
+  min-height: calc(100svh - 4rem);
+}
+
+.home-hero {
+  min-height: calc(100svh - 4rem);
+  padding-bottom: 6rem;
+  padding-top: 2rem;
+}
+
+.home-hero-bottom {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 1.75rem;
+  left: 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-areas: 'contact scroll place';
+  align-items: end;
+  gap: 1rem;
+}
+
+.home-hero-contact {
+  grid-area: contact;
+  justify-self: start;
+  white-space: nowrap;
+}
+
+.home-hero-scroll {
+  grid-area: scroll;
+  justify-self: center;
+  white-space: nowrap;
+}
+
+.home-hero-place {
+  grid-area: place;
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.home-hero-intro {
+  text-wrap: pretty;
+}
+
+/* mono designer-meta eyebrow — set in cobalt ink, like the CVs she pins */
+.u-eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-2);
+}
+
+/* hairline pill label */
+.u-pill {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* wide-tracked caps label (grotesk register from her moodboard) */
+.u-label {
+  font-size: var(--text-meta);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* script accent — tiny annotations on ephemera only */
+.u-script {
+  font-family: var(--font-script), cursive;
+}
+
+/* rich text (sanitized markdown) */
+.u-rich-text > * + * {
+  margin-top: 1em;
+}
+.u-rich-text a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+.u-rich-text a:hover {
+  color: var(--color-accent);
+}
+.u-rich-text strong {
+  color: var(--color-ink);
+}
+.u-rich-text blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.25rem;
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: 1.15em;
+  color: var(--color-ink);
+}
+.u-rich-text ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.u-rich-text ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+/* marquee — the slow editorial ribbon */
+@keyframes u-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.u-marquee {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  animation: u-marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.home-marquee {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+@media (max-width: 699px) {
+  :root {
+    --text-display: 4.55rem;
+    --text-h2: 1.95rem;
+    --text-body: 1.02rem;
+    --text-eyebrow: 0.7rem;
+  }
+
+  .u-eyebrow {
+    letter-spacing: 0.11em;
+  }
+
+  .home-hero {
+    min-height: calc(100svh - 4rem);
+    padding: 1.75rem 1.25rem 7.6rem;
+    z-index: 1;
+  }
+
+  .home-hero-meta {
+    top: 1.35rem;
+    max-width: 42vw;
+    line-height: 1.3;
+  }
+
+  .home-hero-koi-mobile {
+    top: 4.25rem;
+    right: -4rem;
+    width: 18rem;
+    height: 13rem;
+    z-index: 0;
+    opacity: 0.48;
+    filter: saturate(0.95);
+    transform: scale(0.52);
+    transform-origin: top right;
+  }
+
+  .home-hero-title-wrap {
+    width: min(100%, 21rem);
+    margin-top: 3.1rem;
+  }
+
+  .home-hero-name {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.19em 0.34em 0.23em !important;
+  }
+
+  .home-hero-role {
+    max-width: 100%;
+    line-height: 1.35;
+  }
+
+  .home-hero-tagline {
+    max-width: 11.5em;
+    margin-top: 3rem;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .home-hero-intro {
+    max-width: 29ch;
+    margin-top: 1.45rem;
+    line-height: 1.62;
+  }
+
+  .home-hero-bottom {
+    right: 2rem;
+    bottom: 1.75rem;
+    left: 1.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      'contact place'
+      'scroll scroll';
+    row-gap: 1rem;
+    column-gap: 0.85rem;
+  }
+
+  .home-hero-contact,
+  .home-hero-place,
+  .home-hero-scroll {
+    min-width: 0;
+    line-height: 1.35;
+  }
+
+  .home-hero-place {
+    max-width: 16ch;
+    justify-self: end;
+    text-align: right;
+  }
+
+  .home-hero-scroll {
+    justify-self: center;
+  }
+
+  .home-marquee {
+    margin-top: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .u-marquee {
+    animation-duration: 14s;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --text-display: 3.95rem;
+    --text-h2: 1.75rem;
+    --text-body: 0.98rem;
+  }
+
+  .home-hero-section,
+  .home-hero {
+    min-height: calc(100dvh - 4rem);
+  }
+
+  .home-hero {
+    padding: 1.65rem 1rem calc(8.75rem + env(safe-area-inset-bottom));
+  }
+
+  .home-hero-koi-mobile {
+    top: 4.1rem;
+    right: 1.25rem;
+    opacity: 0.42;
+    transform: scale(0.44);
+  }
+
+  .home-hero-title-wrap {
+    width: min(100%, 18.75rem);
+    margin-top: 2.75rem;
+  }
+
+  .home-hero-name {
+    padding: 0.16em 0.3em 0.2em !important;
+  }
+
+  .home-hero-tagline {
+    max-width: 12em;
+    margin-top: 2.65rem;
+  }
+
+  .home-hero-intro {
+    max-width: 28ch;
+    margin-top: 1.25rem;
+  }
+
+  .home-hero-bottom {
+    right: max(1.75rem, env(safe-area-inset-right));
+    bottom: calc(1.6rem + env(safe-area-inset-bottom));
+    left: max(1.5rem, env(safe-area-inset-left));
+    column-gap: 1rem;
+  }
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .u-marquee {
+    transform: translateX(0);
+  }
+}
