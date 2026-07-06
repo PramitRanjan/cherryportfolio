@@ -26,7 +26,7 @@ Section visibility (which pages appear in the nav) is the `visibleSections` arra
 
 ## Env vars
 
-See [.env.example](.env.example) — `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, and optionally `GITHUB_TOKEN` / `GITHUB_REPO_OWNER` / `GITHUB_REPO_NAME` / `GITHUB_CONTENT_BRANCH` / `GITHUB_CONTENT_PATH` for publishing.
+See [.env.example](.env.example) — `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, and `GITHUB_TOKEN` for publishing. The dashboard now defaults its publish target to `PramitRanjan/cherryportfolio`; `GITHUB_REPO_OWNER` / `GITHUB_REPO_NAME` only need overrides if you want a different repo.
 
 ## Content TODOs (for Cherry)
 

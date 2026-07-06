@@ -9,6 +9,10 @@ test('all github creds present → github', () => {
   );
 });
 
+test('token only → github via default repo target', () => {
+  assert.equal(resolveStorageMode({ GITHUB_TOKEN: 't' }), 'github');
+});
+
 test('github creds + VERCEL → still github', () => {
   assert.equal(
     resolveStorageMode({ GITHUB_TOKEN: 't', GITHUB_REPO_OWNER: 'o', GITHUB_REPO_NAME: 'r', VERCEL: '1' }),
@@ -24,6 +28,6 @@ test('VERCEL set, no github creds → readonly', () => {
   assert.equal(resolveStorageMode({ VERCEL: '1' }), 'readonly');
 });
 
-test('partial github creds → local (not github)', () => {
-  assert.equal(resolveStorageMode({ GITHUB_TOKEN: 't' }), 'local');
+test('owner only, no token → local', () => {
+  assert.equal(resolveStorageMode({ GITHUB_REPO_OWNER: 'o' }), 'local');
 });

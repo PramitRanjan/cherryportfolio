@@ -234,8 +234,10 @@ h3 {
 
 /* hairline pill label */
 .u-pill {
-  display: inline-block;
-  padding: 0.35rem 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  padding: 0.5rem 0.8rem 0.4rem;
   border: 1px solid currentColor;
   border-radius: 999px;
   font-family: var(--font-mono), monospace;

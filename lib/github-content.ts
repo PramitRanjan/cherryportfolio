@@ -1,12 +1,10 @@
 import 'server-only';
 
+import { resolveGitHubPublishConfig } from './github-publish-config.ts';
+
 /** Commits the full content JSON to GitHub, triggering a Vercel redeploy. */
 export async function commitContentToGitHub(json: string): Promise<void> {
-  const owner = process.env.GITHUB_REPO_OWNER;
-  const repo = process.env.GITHUB_REPO_NAME;
-  const token = process.env.GITHUB_TOKEN;
-  const path = process.env.GITHUB_CONTENT_PATH || 'content/site-content.json';
-  const branch = process.env.GITHUB_CONTENT_BRANCH || 'main';
+  const { owner, repo, token, path, branch } = resolveGitHubPublishConfig();
 
   const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   const headers = {

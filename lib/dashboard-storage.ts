@@ -6,11 +6,12 @@
 import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { SiteContent } from '@/lib/site-content-schema';
+import { isGitHubDashboardPublishConfigured } from './github-publish-config.ts';
 
 export type StorageMode = 'local' | 'github' | 'readonly';
 
 export function resolveStorageMode(env: Record<string, string | undefined> = process.env): StorageMode {
-  if (env.GITHUB_TOKEN && env.GITHUB_REPO_OWNER && env.GITHUB_REPO_NAME) return 'github';
+  if (isGitHubDashboardPublishConfigured(env)) return 'github';
   if (!env.VERCEL) return 'local';
   return 'readonly';
 }
